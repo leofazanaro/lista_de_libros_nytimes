@@ -74,6 +74,19 @@ class BuscarLivrosActivity : AppCompatActivity(),RecyclerViewButtonOnClickListen
 
         viewModel!!.listBooks!!.observe(this, Observer {
 
+
+            if(it.size > 0){
+
+                lyData!!.visibility= View.VISIBLE
+                lyEmpty!!.visibility= View.GONE
+
+            }else{
+
+                lyData!!.visibility= View.GONE
+                lyEmpty!!.visibility= View.VISIBLE
+            }
+
+
             val adapter = BookDetailsAdapter(this,it)
             adapter.setRecyclerViewButtonOnClickListener(this)
 
